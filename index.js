@@ -1,15 +1,12 @@
-const http = require("node:http");
+const http = require("http");
 
-const server = http.createServer((request, response) => {
-  response.statusCode = 200;
-  response.setHeader("Content-Type", "application/json");
-  const data = JSON.stringify({ message: "Hello, world!" });
-  response.end(data);
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello, Azure!");
 });
-const port = process.env.PORT || 5000;
 
-server.listen(port);
-
-// https://learn-node-azure.azurewebsites.net/
-
-console.log("Hello, world!");
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
