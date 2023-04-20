@@ -7,4 +7,8 @@ const server = http.createServer((request, response) => {
   response.end(data);
 });
 
-server.listen(3000);
+server.listen(process.env.PORT, () => {
+  console.log("listening on port " + process.env.PORT);
+});
+
+// https://learn-node-azure.azurewebsites.net/
